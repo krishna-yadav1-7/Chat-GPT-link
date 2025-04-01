@@ -16,3 +16,24 @@ INSERT INTO Sales (sale_date, fruit, sold_num) VALUES
 ('2020-05-03', 'oranges', 0),
 ('2020-05-04', 'apples', 15),
 ('2020-05-04', 'oranges', 16);
+
+
+
+------------------------------------------
+
+
+select * from sales;
+
+with result1 as 
+(select * from sales 
+order by sale_date, fruit),
+
+result2 as 
+(
+select *,lead(sold_num,1) OVER(partition by sale_date) as orange_num
+from result1
+)
+
+select sale_date, (sold_num - orange_num) as diff 
+from result2
+where orange_num is not null;
