@@ -14,3 +14,14 @@ CREATE TABLE Championships (
     FOREIGN KEY (US_open) REFERENCES Players(player_id),
     FOREIGN KEY (Au_open) REFERENCES Players(player_id)
 );
+
+
+INSERT INTO Players (player_id, player_name) VALUES
+(1, 'Nadal'),
+(2, 'Federer'),
+(3, 'Novak');
+
+INSERT INTO Championships (year, Wimbledon, Fr_open, US_open, Au_open) VALUES
+(2018, 1, 1, 1, 1),
+(2019, 1, 1, 2, 2),
+(2020, 2, 1, 2, 2);
