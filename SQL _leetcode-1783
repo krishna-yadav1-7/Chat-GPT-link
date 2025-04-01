@@ -1,0 +1,16 @@
+CREATE TABLE Players (
+    player_id INT PRIMARY KEY,
+    player_name VARCHAR(50)
+);
+
+CREATE TABLE Championships (
+    year INT PRIMARY KEY,
+    Wimbledon INT,
+    Fr_open INT,
+    US_open INT,
+    Au_open INT,
+    FOREIGN KEY (Wimbledon) REFERENCES Players(player_id),
+    FOREIGN KEY (Fr_open) REFERENCES Players(player_id),
+    FOREIGN KEY (US_open) REFERENCES Players(player_id),
+    FOREIGN KEY (Au_open) REFERENCES Players(player_id)
+);
